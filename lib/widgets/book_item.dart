@@ -14,7 +14,6 @@ class BookItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,
         children: [
-// text field
 // container for card to add padding
           Container(
               color: Theme.of(context).secondaryHeaderColor,

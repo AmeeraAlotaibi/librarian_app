@@ -3,7 +3,9 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:librarian_app/models/book_model.dart';
+import 'package:librarian_app/providers/book_provider.dart';
 import 'package:librarian_app/widgets/book_item.dart';
+import 'package:provider/provider.dart';
 
 class BooksListPage extends StatelessWidget {
   BooksListPage({Key? key}) : super(key: key);
@@ -35,8 +37,9 @@ class BooksListPage extends StatelessWidget {
           ],
         ),
         body: ListView.builder(
-          itemCount: books.length,
-          itemBuilder: (context, index) => BookItem(book: books[index]),
+          itemCount: context.watch<BookProvider>().books.length,
+          itemBuilder: (context, index) =>
+              BookItem(book: context.watch<BookProvider>().books[index]),
         ));
   }
 }

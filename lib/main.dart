@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:librarian_app/models/book_model.dart';
-import 'package:librarian_app/pages/add-book.dart';
-import 'package:librarian_app/pages/book-details.dart';
+import 'package:librarian_app/pages/add_book.dart';
+import 'package:librarian_app/pages/book_details.dart';
 import 'package:librarian_app/pages/books_list.dart';
 import 'package:librarian_app/pages/home_page.dart';
+import 'package:librarian_app/providers/book_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => BookProvider(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
