@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
-import 'books_list.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -18,7 +15,7 @@ class HomePage extends StatelessWidget {
       // body
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Welcome message
@@ -30,6 +27,7 @@ class HomePage extends StatelessWidget {
 
             // image
             Container(
+              margin: EdgeInsets.only(bottom: 100, top: 20),
               width: 200,
               height: 200,
               decoration: BoxDecoration(
@@ -68,7 +66,9 @@ class HomePage extends StatelessWidget {
                 ),
                 // Members list button
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).push('/members-list');
+                  },
                   icon: Icon(Icons.person),
                   label: Text(
                     "Members List",

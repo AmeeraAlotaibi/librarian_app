@@ -9,11 +9,11 @@ import '/models/book_model.dart';
 class AddBookPage extends StatelessWidget {
   AddBookPage({Key? key}) : super(key: key);
   // controller variables
-  final bookTitle = TextEditingController();
-  final bookAuthor = TextEditingController();
-  final bookGenre = TextEditingController();
-  final bookAvailable = TextEditingController();
-  final bookBorrowedBy = TextEditingController();
+  var bookTitle = TextEditingController();
+  var bookAuthor = TextEditingController();
+  var bookGenre =  TextEditingController();
+  var bookAvailable = TextEditingController();
+  var bookBorrowedBy = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,181 +24,190 @@ class AddBookPage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            "Add New Book Form",
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          // Form column
-          Column(
-            children: [
-              Container(
-                width: 300,
-                child: TextField(
-                  controller: bookTitle,
-                  style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 17,
-                      color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.title_rounded),
-                      iconColor: Theme.of(context).primaryColor,
-                      hintText: "Book Title",
-                      hintStyle: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 0,
-                          color: Color.fromARGB(255, 152, 152, 152)),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                            width: 3,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(5),
-                      )),
+          child: Flexible(
+        flex: 1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              "Add New Book Form",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            // Form column
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 250,
+                  height: 70,
+                  child: TextField(
+                    controller: bookTitle,
+                    style: TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 17,
+                        color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.title_rounded),
+                        iconColor: Theme.of(context).primaryColor,
+                        hintText: "Book Title",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 0,
+                            color: Color.fromARGB(255, 152, 152, 152)),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
                 ),
-              ),
-// text field for book author
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                width: 300,
-                child: TextField(
-                  controller: bookAuthor,
-                  style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 17,
-                      color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.title_rounded),
-                      iconColor: Theme.of(context).primaryColor,
-                      hintText: "Author Name",
-                      hintStyle: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 0,
-                          color: Color.fromARGB(255, 152, 152, 152)),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                            width: 3,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(5),
-                      )),
+                // text field for book author
+                Container(
+                  margin: EdgeInsets.only(top: 2),
+                  width: 250,
+                  height: 70,
+                  child: TextField(
+                    controller: bookAuthor,
+                    style: TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 17,
+                        color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.title_rounded),
+                        iconColor: Theme.of(context).primaryColor,
+                        hintText: "Author Name",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 0,
+                            color: Color.fromARGB(255, 152, 152, 152)),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
                 ),
-              ),
 
-// text field for book genre
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                width: 300,
-                child: TextField(
-                  controller: bookGenre,
-                  style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 17,
-                      color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.title_rounded),
-                      iconColor: Theme.of(context).primaryColor,
-                      hintText: "Genres",
-                      hintStyle: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 0,
-                          color: Color.fromARGB(255, 152, 152, 152)),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                            width: 3,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(5),
-                      )),
+                // text field for book genre
+                Container(
+                  margin: EdgeInsets.only(top: 2),
+                  width: 250,
+                  height: 70,
+                  child: TextField(
+                    controller: bookGenre,
+                    style: TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 17,
+                        color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.title_rounded),
+                        iconColor: Theme.of(context).primaryColor,
+                        hintText: "Genres",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 0,
+                            color: Color.fromARGB(255, 152, 152, 152)),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
                 ),
-              ),
-// text field for book availability
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                width: 300,
-                child: TextField(
-                  controller: bookAvailable,
-                  style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 17,
-                      color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.title_rounded),
-                      iconColor: Theme.of(context).primaryColor,
-                      hintText: "Book Availibility",
-                      hintStyle: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 0,
-                          color: Color.fromARGB(255, 152, 152, 152)),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                            width: 3,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(5),
-                      )),
+                // text field for book availability
+                Container(
+                  margin: EdgeInsets.only(top: 2),
+                  width: 250,
+                  height: 70,
+                  child: TextField(
+                    controller: bookAvailable,
+                    style: TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 17,
+                        color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.title_rounded),
+                        iconColor: Theme.of(context).primaryColor,
+                        hintText: "Book Availibility",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 0,
+                            color: Color.fromARGB(255, 152, 152, 152)),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
                 ),
-              ),
-// text field for book borrowed by
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                width: 300,
-                child: TextField(
-                  controller: bookBorrowedBy,
-                  style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 17,
-                      color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.title_rounded),
-                      iconColor: Theme.of(context).primaryColor,
-                      hintText: "Borrowed by?",
-                      hintStyle: TextStyle(
-                          fontSize: 15,
-                          letterSpacing: 0,
-                          color: Color.fromARGB(255, 152, 152, 152)),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                            width: 3,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(5),
-                      )),
+                // text field for book borrowed by
+                Container(
+                  margin: EdgeInsets.only(top: 2),
+                  width: 250,
+                  height: 70,
+                  child: TextField(
+                    controller: bookBorrowedBy,
+                    style: TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 17,
+                        color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.title_rounded),
+                        iconColor: Theme.of(context).primaryColor,
+                        hintText: "Borrowed by?",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 0,
+                            color: Color.fromARGB(255, 152, 152, 152)),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // add new book function here needs provider
-                  context.read<BookProvider>().addBook(Book(
-                        title: bookTitle.text,
-                        author: bookAuthor.text,
-                      ));
-                  GoRouter.of(context).pop();
-                },
-                child: Text(
-                  "Add",
-                  style: Theme.of(context).textTheme.bodyMedium,
+                ElevatedButton(
+                  onPressed: () {
+                    // add new book function here needs provider
+                    context.read<BookProvider>().addBook(Book(
+                          title: bookTitle.text,
+                          author: bookAuthor.text,
+                        ));
+                    GoRouter.of(context).pop();
+                  },
+                  child: Text(
+                    "Submit",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).primaryColor,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       )),
     );
   }

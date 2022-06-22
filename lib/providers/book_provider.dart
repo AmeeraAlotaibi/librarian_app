@@ -92,4 +92,15 @@ class BookProvider extends ChangeNotifier {
     books.add(book);
     notifyListeners();
   }
+
+  // function to loop through the genre list
+  // String loopGenres(List<String> genre) {
+  //   String genres = "";
+  //   for (int i = 0; i < genre.length; i++) {
+  //     genres = (genre[i]);
+  //   }
+  //   print(genres);
+  //   return genres;
+  // }
 }
+
