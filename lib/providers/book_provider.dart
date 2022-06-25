@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:librarian_app/models/book_model.dart';
 import '../pages/add_book.dart';
 import 'package:flutter/foundation.dart';
+import 'member_provider.dart';
 
 class BookProvider extends ChangeNotifier {
   List<Book> books = [
@@ -94,13 +95,12 @@ class BookProvider extends ChangeNotifier {
   }
 
   // function to loop through the genre list
-  // String loopGenres(List<String> genre) {
-  //   String genres = "";
-  //   for (int i = 0; i < genre.length; i++) {
-  //     genres = (genre[i]);
-  //   }
-  //   print(genres);
-  //   return genres;
-  // }
+  String loopGenres(List<String> genres) {
+    String genre = "";
+    for (int i = 0; i < genres.length; i++) {
+      genre = genres[i];
+    }
+    print(genre);
+    return genre;
+  }
 }
-

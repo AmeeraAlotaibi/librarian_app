@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:librarian_app/models/members_model.dart';
+import '/providers/member_provider.dart';
 
 class MemberItem extends StatelessWidget {
   MemberItem({required this.member});
-  Member member;
+  // function to capitalize the first letter of a given string
+  String capitalize(String string) {
+    return string[0].toUpperCase() + string.substring(1).toLowerCase();
+  }
 
+  Member member;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +24,7 @@ class MemberItem extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
               child: InkWell(
                 onTap: () {
-                  // GoRouter.of(context).push('/member-details', extra: member);
+                  GoRouter.of(context).push('/member-details', extra: member);
                 },
                 child: Card(
                   elevation: 0,
@@ -52,7 +57,11 @@ class MemberItem extends StatelessWidget {
                           ),
                           Text(
                             member.membership,
-                            style: Theme.of(context).textTheme.titleSmall,
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.normal,
+                                letterSpacing: 0),
                           ),
                           Container(
                               margin: EdgeInsets.only(top: 5),

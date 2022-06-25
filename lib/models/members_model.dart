@@ -1,18 +1,17 @@
+import 'package:librarian_app/models/book_model.dart';
+
 class Member {
-  int id;
+  int? id;
   String firstName;
   String lastName;
   String membership;
-  List<int>currentlyBorrowedBooks;
+  List<int>? currentlyBorrowedBooks;
 
   Member({
-    required this.id,
+    this.id,
     required this.firstName,
     required this.lastName,
     required this.membership,
-    required this.currentlyBorrowedBooks,
+    this.currentlyBorrowedBooks,
   });
-
-  
-
 }

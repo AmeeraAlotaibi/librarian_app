@@ -1,7 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:librarian_app/models/members_model.dart';
+import 'package:librarian_app/pages/member_details.dart';
 import 'package:provider/provider.dart';
 import 'package:librarian_app/models/book_model.dart';
 import 'package:librarian_app/pages/add_book.dart';
@@ -17,11 +17,8 @@ void main() {
     MultiProvider(providers: [
       ChangeNotifierProvider<BookProvider>(create: (_) => BookProvider()),
       ChangeNotifierProvider<MemberProvider>(create: (_) => MemberProvider()),
-    ],
-    child: MyApp()
-    ),
-    
-    );
+    ], child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -103,6 +100,12 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/members-list',
         builder: (context, state) => MembersListPage(),
+      ),
+      GoRoute(
+        path: '/member-details',
+        builder: (context, state) => MemberDetailsPage(
+          member: state.extra as Member,
+        ),
       ),
     ],
   );
