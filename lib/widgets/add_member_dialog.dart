@@ -147,6 +147,7 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
           SizedBox(
             height: 10,
           ),
+// ********************* books borrowed ********************
           TextFormField(
             controller: _booksBorrowed,
             style: TextStyle(
@@ -155,7 +156,7 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
                 color: Theme.of(context).primaryColor),
             validator: (name) => name != null ? name : "Enter books borrowed",
             decoration: InputDecoration(
-              labelText: 'Books Borrowed by',
+              labelText: 'Books borrowed',
               icon: Icon(
                 Icons.bookmark,
                 color: Theme.of(context).primaryColor,
