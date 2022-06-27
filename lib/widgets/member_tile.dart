@@ -19,8 +19,11 @@ class MemberItem extends StatelessWidget {
         children: [
 // container for card to add padding
           Container(
-              color: Theme.of(context).secondaryHeaderColor,
-              padding: EdgeInsets.symmetric(vertical: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Theme.of(context).secondaryHeaderColor,
+              ),
+              padding: EdgeInsets.symmetric(vertical: 10),
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
               child: InkWell(
                 onTap: () {

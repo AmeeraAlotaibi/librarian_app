@@ -16,7 +16,10 @@ class BookItem extends StatelessWidget {
         children: [
 // container for card to add padding
           Container(
-              color: Theme.of(context).secondaryHeaderColor,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Theme.of(context).secondaryHeaderColor,
+              ),
               padding: EdgeInsets.symmetric(vertical: 10),
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
               child: InkWell(
@@ -29,7 +32,7 @@ class BookItem extends StatelessWidget {
                   child: Row(children: [
                     // container that houses the placeholder image
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 15, 0),
+                      margin: EdgeInsets.fromLTRB(10, 0, 15, 0),
                       width: 100,
                       height: 125,
                       decoration: BoxDecoration(

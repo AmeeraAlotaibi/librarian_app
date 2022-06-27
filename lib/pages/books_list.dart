@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:librarian_app/models/book_model.dart';
 import 'package:librarian_app/providers/book_provider.dart';
+import 'package:librarian_app/widgets/add_book_dialog.dart';
 import 'package:librarian_app/widgets/book_item.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,11 @@ class BooksListPage extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
 // write on tap code for adding new book here
-                  GoRouter.of(context).push("/add-book");
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AddBook();
+                      });
                 },
                 child: Icon(
                   Icons.add,

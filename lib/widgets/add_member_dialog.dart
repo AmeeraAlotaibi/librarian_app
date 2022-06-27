@@ -69,36 +69,68 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
             ),
           ),
 
+          SizedBox(
+            height: 10,
+          ),
 // ************** Last Name *****************************
           TextFormField(
             controller: _lastName,
             style: TextStyle(
                 fontSize: 15,
-                fontWeight: FontWeight.bold,
                 letterSpacing: 0,
                 color: Theme.of(context).primaryColor),
+            validator: (name) => name != null ? name : "Enter your last name",
             decoration: InputDecoration(
               labelText: 'Last name',
+              icon: Icon(
+                Icons.person,
+                color: Theme.of(context).primaryColor,
+              ),
               labelStyle: TextStyle(
-                  fontSize: 15,
+                  fontSize: 16,
                   letterSpacing: 0,
                   fontWeight: FontWeight.normal),
-              icon: Icon(Icons.person),
+              contentPadding: EdgeInsets.only(left: 15),
+              floatingLabelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(width: 2)),
+              // when field is focused
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: Theme.of(context).primaryColor, width: 2),
+              ),
+              // validator
+              errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFFB71C1C))),
             ),
           ),
 
 // ************ dropdown menu *******************
-
+          SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Icon(
                 Icons.grade_rounded,
-                color: Color(0xFF878787),
+                color: Theme.of(context).primaryColor,
               ),
               Container(
-                width: 193,
+                width: 192,
+                height: 50,
                 child: DropdownButtonFormField(
+                    decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                    hint: Text(
+                      "Membership tier",
+                    ),
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 15,
@@ -112,23 +144,46 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
               ),
             ],
           ),
-
+          SizedBox(
+            height: 10,
+          ),
           TextFormField(
-              controller: _booksBorrowed,
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+            controller: _booksBorrowed,
+            style: TextStyle(
+                fontSize: 15,
+                letterSpacing: 0,
+                color: Theme.of(context).primaryColor),
+            validator: (name) => name != null ? name : "Enter books borrowed",
+            decoration: InputDecoration(
+              labelText: 'Books Borrowed by',
+              icon: Icon(
+                Icons.bookmark,
+                color: Theme.of(context).primaryColor,
+              ),
+              labelStyle: TextStyle(
+                  fontSize: 16,
                   letterSpacing: 0,
-                  color: Theme.of(context).primaryColor),
-              decoration: InputDecoration(
-                labelText: 'Books borrowed',
-                labelStyle: TextStyle(
-                    fontSize: 15,
-                    letterSpacing: 0,
-                    fontWeight: FontWeight.normal),
-                icon: Icon(Icons.bookmark),
-              )),
-
+                  fontWeight: FontWeight.normal),
+              contentPadding: EdgeInsets.only(left: 15),
+              floatingLabelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(width: 2)),
+              // when field is focused
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: Theme.of(context).primaryColor, width: 2),
+              ),
+              // validator
+              errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFFB71C1C))),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Container(
               margin: EdgeInsets.only(top: 10),
               child: ElevatedButton(
@@ -140,6 +195,9 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
                         ));
                     Navigator.pop(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                  ),
                   child: Text("Submit"))),
         ],
       ),
